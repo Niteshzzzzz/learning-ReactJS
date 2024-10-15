@@ -1,0 +1,30 @@
+.main {
+  background-color: #1a1616;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #ececec;
+  border-radius: 50%;
+  padding: 0 12px 7px;
+  font-size: 50px;
+}
+
+.basket {
+  background-color: #6dedf1;
+  border-radius: 10px;
+  padding-inline: 10px;
+}
+
+.vkm1UG_btn {
+  font-size: 25px;
+}
+
+.vkm1UG_btn2 {
+  background-color: #4169e1;
+}
+/*# sourceMappingURL=index.c41b5a0e.css.map */
