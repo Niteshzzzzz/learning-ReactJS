@@ -55,17 +55,21 @@ body {
   --background-color: white;
   --text-color: black;
   --element-color: white;
-  background-color: var(--background-color);
-  color: var(--text-color);
 }
 
-body.dark {
+main.dark, header.dark {
   --background-color: #202c37;
   --text-color: white;
   --element-color: #2b3945;
 }
 
+main, header {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
 header {
+  z-index: 1;
   background-color: var(--background-color);
   color: var(--text-color);
   justify-content: space-between;
@@ -73,6 +77,8 @@ header {
   height: 64px;
   padding-inline: 68px;
   display: flex;
+  position: sticky;
+  top: 0;
   box-shadow: 0 0 4px 2px #0003;
 }
 
@@ -83,9 +89,9 @@ header {
 .filter-container {
   background-color: var(--background-color);
   color: var(--text-color);
-  margin-top: 40px;
   justify-content: space-between;
   margin-inline: 5%;
+  padding-top: 40px;
   display: flex;
 }
 
@@ -182,6 +188,7 @@ a {
 }
 
 .main {
+  min-height: calc(100vh - 65px);
   padding: 60px 50px;
 }
 

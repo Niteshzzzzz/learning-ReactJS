@@ -8,15 +8,22 @@ body{
     --background-color: white;
     --text-color: black;
     --element-color: white;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    
 }
-body.dark{
+main.dark, header.dark{
     --background-color: hsl(207, 26%, 17%);
     --text-color: white;
     --element-color: hsl(209, 23%, 22%);
 }
+main, header{
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +39,7 @@ header{
 .filter-container{
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    padding-top: 40px;
     margin-inline: 5%;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -124,6 +131,7 @@ a{
 }
 .main{
     padding: 60px 50px;
+    min-height: calc(100vh - 65px);
 }
 .back{
     display: inline-block;

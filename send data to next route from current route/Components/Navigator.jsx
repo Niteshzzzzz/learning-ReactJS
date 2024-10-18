@@ -1,17 +1,12 @@
-import React from 'react'
-import {useState} from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../contexts/ThemeContext.js'
+
 
 export const Navigator = () => {
-
-  const [isDark, setIsDark] = useState(JSON.parse(localStorage.getItem('isDarkMode')))
-  if (isDark) {
-    document.querySelector('body').classList.add('dark')
-  }else{
-    document.querySelector('body').classList.remove('dark')
-  }
+  const [isDark, setIsDark] = useContext(ThemeContext);
 
   return (
-    <header>
+    <header className={`${isDark?'dark':'' }`}>
       <div className="sub1"><h2>Where is the word?</h2></div>
       <div className="sub2" onClick={() => {
         setIsDark(!isDark)

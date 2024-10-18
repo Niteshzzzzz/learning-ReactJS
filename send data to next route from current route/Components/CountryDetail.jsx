@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import '../app.css'
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useOutletContext, useParams } from "react-router-dom";
+import { ThemeContext } from "../contexts/ThemeContext.js";
 // import './Shimmer.css'
 
 const CountryDetail = () => {
@@ -9,6 +10,7 @@ const CountryDetail = () => {
     const countryName = Params.country; 
     const [counrtyData, setCountryData] = useState([]);
     const [failed, setFailed] = useState(false);
+    const [isDark] = useContext(ThemeContext)
 
     function udpdateCountryData(data){
         setCountryData({
@@ -61,43 +63,10 @@ const CountryDetail = () => {
     if (failed == true) {
         return <div>Country not found?</div>
     }
-    if (counrtyData.length === 0) {
-        return (
-            <main className="main">
-                <a href="" className="back"><i className="fa-solid fa-arrow-left-long" onClick={() => history.back()}></i><span>&#160;&#160;Back</span></a>
-                <div className="country-card">
-                    <div className="image">
-                        <img  onerror="this.style.display='none'" className="im"></img>
-                    </div>
-                    <div className="content">
-                        <h2 className="hii"></h2>
-                        <div className="content1">
-                            <p className="not"></p>
-                            <p className="not"></p>
-                            <p className="not"></p>
-                            <p className="not"></p>
-                            <p className="not"></p>
-                            <p className="not"></p>
-                            
-                        </div>
-                        <div className="border-countries">
-                            <p className="border">Border Countries: </p>
-                            <Link to={'india'} className="vi"></Link>
-                            <Link to={'india'} className="vi"></Link>
-                            <Link to={'india'} className="vi"></Link>
-                            <Link to={'india'} className="vi"></Link>
-                            <Link to={'india'} className="vi"></Link>
-                            <Link to={'india'} className="vi"></Link>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        )
-    }
 
     return counrtyData === null ? <div>loading...</div> : (
         <>
-            <main className="main">
+            <main className={`main ${isDark ? 'dark' : ''}`}>
                 <a href="" className="back"><i className="fa-solid fa-arrow-left-long" onClick={() => history.back()}></i><span>&#160;&#160;Back</span></a>
                 <div className="country-card">
                     <div className="image">
