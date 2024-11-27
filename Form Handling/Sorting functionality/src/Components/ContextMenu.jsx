@@ -1,12 +1,15 @@
 import React from 'react'
 
-export default function ContextMenu({ menuPosition, setMenuPosition, rowId, setExpenses }) {
+export default function ContextMenu({ menuPosition, setMenuPosition, rowId, setExpenses, expenses, setExpense, setEditingId}) {
   if (!menuPosition.left) return;
   return (
     <div className='context-menu' style={{ left: menuPosition.left, top: menuPosition.top }}>
       <div onClick={() => {
-        console.log('Editing')
+        setEditingId(rowId)
         setMenuPosition({})
+        const {title, category, price} = expenses.find((expense) => expense.id === rowId)
+        // console.log(editData)
+        setExpense({title, category, price})
       }}>Edit</div>
       <div onClick={() => {
         console.log('Deleting')
